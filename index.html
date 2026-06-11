@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CoreScore</title>
+  <link rel="icon" type="image/x-icon" href="Corescore cricket scoring logo (1).png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <div class="container">
+    <div id="welcome">
+      <div id="logo">
+        <!-- app logo -->
+        <img src="Corescore cricket scoring logo (1).png" alt="CoreScore Logo" class="logo">
+      </div>
+
+      <h1 class="info">Welcome to CoreScore.</h1>
+      <p class="info">Click next to set up your cricket match.</p>
+      <button id="nextBtn">Next</button>
+    </div>
+
+    <!-- to setup the match by entering team names and no. of overs. --> 
+    <div id="setup" style="display: none;">
+      <div id="logo">
+        <!-- app logo -->
+        <img src="Corescore cricket scoring logo (1).png" alt="CoreScore Logo" class="logo">
+      </div>
+
+      <input id="team1" type="text" placeholder="Team 1">
+      <input id="team2" type="text" placeholder="Team 2">
+      <input id="overs" type="number" placeholder="Overs">
+      <button id="startBtn">Start Match</button>
+    </div>
+
+    <!-- match section to display ongoing/current match details and controls. -->
+    <div id="match" style="display: none;">
+      <div id="logo">
+        <!-- app logo -->
+        <img src="Corescore cricket scoring logo (1).png" alt="CoreScore Logo" class="logo">
+      </div>
+      <h2 id="teams"></h2>
+      <div id="batting" class="batting"></div>
+      <h3 id="score"></h3>
+      <p id="info"></p>
+
+      <!-- div to show the current batsmen and bowler stats. -->
+      <div class="players">
+        <p id="p1"></p>
+        <p id="p2"></p>
+      </div>
+
+      <!-- run and wicket buttons -->
+      <div class="buttons">
+        <button class="runBtn" data-run="0">0</button>
+        <button class="runBtn" data-run="1">1</button>
+        <button class="runBtn" data-run="2">2</button>
+        <button class="runBtn" data-run="3">3</button>
+        <button class="runBtn" data-run="4">4</button>
+        <button class="runBtn" data-run="6">6</button>
+        <button class="wicket" id="wicketBtn">
+          <img src="cricket.png" class="w-icon" alt="wicket icon"> WICKET
+        </button>
+      </div>
+
+      <!-- match extras section to handle wides and no balls. -->
+      <div class="extras">
+        <button id="wideBtn">Wide</button>
+        <button id="noBallBtn">No Ball</button>
+      </div>
+
+      <!-- undo and next innings buttons -->   
+      <div class="actions">
+        <button id="undoBtn">Undo</button>
+        <button id="nextInningsBtn">Next Innings</button>
+      </div>
+
+      <!-- shows the over tracking after each ball. -->
+      <h4>Last Over</h4>
+      <p id="lastOver">-</p>
+    </div>
+
+    <!-- result and reset section, appears after match ends. -->
+    <div id="result" style="display: none;">
+      <div id="logo">
+        <!-- app logo -->
+        <img src="Corescore cricket scoring logo (1).png" alt="CoreScore Logo" class="logo">
+      </div>
+      <h2 id="winner"></h2>
+      <button id="resetBtn">New Match</button>
+    </div>
+
+  </div>
+
+  <!-- for the lazy loading of the script, make the web page load faster -->
+  <script src="script.js"></script>
+</body>
+</html>

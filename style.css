@@ -1,0 +1,208 @@
+/* Common or Global styles*/
+html, body {
+  height: 100%;
+  margin: 0;
+}
+/* Background gradient and general text styling */
+body {
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #0f2027, #1b4332, #081c15);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  color: white;
+  text-align: center;
+}
+/* Container and common elements */
+.container {
+  max-width: 430px;
+  margin: 20px auto;
+  padding: 20px;
+}
+/* Specific styles for each section */
+h1 {
+  color: #7dffb3;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+/* Card-like styling for welcome, setup, match, and result sections */
+#welcome,
+#setup,
+#match,
+#result {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(125, 255, 179, 0.2);
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 0 18px rgba(0, 255, 140, 0.15);
+  margin-bottom: 15px;
+  min-height: 40vh;
+  align-content: end; 
+}
+/* match setup inputs styling. */
+input {
+  width: 85%;
+  padding: 12px;
+  margin: 6px 0;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  font-size: 15px;
+  background: #f5fff8;
+  color: #123524;
+}
+
+input::placeholder {
+  color: #4f6f5f;
+}
+/* Button styling and hover effects */
+button {
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+  border-radius: 12px;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  opacity: 0.95;
+}
+/* Specific button styles for each section */
+#welcome button,
+#setup button,
+#result button {
+  width: 90%;
+  padding: 13px;
+  margin-top: 10px;
+  background: linear-gradient(to right, #52b788, #95d5b2);
+  color: #081c15;
+  font-size: 16px;
+}
+
+
+/* Match section specific styles */
+#teams {
+  margin-bottom: 8px;
+  color: #d8ffe8;
+}
+
+.batting {
+  display: inline-block;
+  background: linear-gradient(to right, #52b788, #74c69d);
+  color: #062b1f;
+  padding: 8px 16px;
+  border-radius: 25px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+/* Score display styling */
+#score {
+  font-size: 30px;
+  margin: 10px 0;
+  color: #ffffff;
+}
+/* Logo and info styling */
+#logo {
+  margin-bottom: 15px;
+}
+
+.logo {
+  width: 120px;
+  height: auto;
+}
+
+#info {
+  color: #b7e4c7;
+  margin-bottom: 15px;
+}
+/* Players info styling */
+.players {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(125, 255, 179, 0.15);
+  padding: 12px;
+  margin: 14px 0;
+  border-radius: 12px;
+}
+
+.players p {
+  margin: 8px 0;
+  font-size: 16px;
+}
+/* Buttons for runs, wickets, extras, and actions  styles in grid and their specific styles */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.buttons button {
+  background: linear-gradient(to right, #52b788, #95d5b2);
+  color: #062b1f;
+  font-size: 18px;
+  padding: 16px 0;
+}
+
+.wicket {
+  grid-column: span 3;
+  background: linear-gradient(to right, #d62828, #f77f00) !important;
+  color: white !important;
+}
+
+/* Wicket symbol in the html style using image*/
+.w-icon { 
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.extras {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.extras button {
+  background: linear-gradient(to right, #168aad, #34a0a4);
+  color: white;
+  padding: 13px 0;
+  font-size: 15px;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 15px;
+}
+/* Action buttons for undo and end innings */
+.actions button {
+  background: linear-gradient(to right, #1b4332, #2d6a4f);
+  color: white;
+  padding: 13px 0;
+  font-size: 15px;
+}
+
+h4 {
+  margin-top: 18px;
+  color: #d8ffe8;
+}
+/* Last over summary and winner announcement styling */
+#lastOver {
+  background: rgba(0, 0, 0, 0.25);
+  padding: 12px;
+  border-radius: 10px;
+  margin-top: 10px;
+  color: #e9fff1;
+  min-height: 20px;
+}
+
+#winner {
+  color: #7dffb3;
+  font-size: 28px;
+  margin-bottom: 15px;
+}
