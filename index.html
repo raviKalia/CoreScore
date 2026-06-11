@@ -19,17 +19,79 @@
       <button id="nextBtn">Next</button>
     </div>
 
-    <!-- to setup the match by entering team names and no. of overs. --> 
+    <!-- ADDED: Unified setup page with team names, overs, and player count -->
     <div id="setup" style="display: none;">
       <div id="logo">
         <!-- app logo -->
         <img src="Corescore cricket scoring logo (1).png" alt="CoreScore Logo" class="logo">
       </div>
 
-      <input id="team1" type="text" placeholder="Team 1">
-      <input id="team2" type="text" placeholder="Team 2">
-      <input id="overs" type="number" placeholder="Overs">
-      <button id="startBtn">Start Match</button>
+      <h2 style="color: #7dffb3; margin-bottom: 16px;">Match Setup</h2>
+      
+      <!-- ADDED: Team names and overs in one section -->
+      <div style="margin-bottom: 14px;">
+        <input id="team1" type="text" placeholder="Team 1 Name">
+        <input id="team2" type="text" placeholder="Team 2 Name">
+        <input id="overs" type="number" placeholder="Overs" min="1" max="50">
+      </div>
+
+      <!-- ADDED: Player count and dynamic player inputs -->
+      <label style="color: #d8ffe8; display: block; margin-bottom: 8px; font-size: 14px;">Players per team:</label>
+      <input id="playerCount" type="number" placeholder="Players per team" min="1" max="20" style="margin-bottom: 12px;">
+      <button id="generatePlayersBtn" style="background: linear-gradient(to right, #1b4332, #2d6a4f); color: white; width: 90%; padding: 10px; border: none; border-radius: 8px; margin-bottom: 12px; cursor: pointer;">Generate Player Inputs</button>
+
+      <!-- ADDED: Dynamic player inputs container -->
+      <div id="playerInputsContainer"></div>
+
+      <!-- ADDED: Arranger buttons -->
+      <div style="display:flex; gap:8px; justify-content:center; margin-top: 12px;">
+        <button id="arrangeBtn" style="flex:1; background: linear-gradient(to right, #1b4332, #2d6a4f); color: white; padding: 10px; border: none; border-radius: 8px; cursor: pointer;">Arrange Team A</button>
+        <button id="arrangeBtn2" style="flex:1; background: linear-gradient(to right, #1b4332, #2d6a4f); color: white; padding: 10px; border: none; border-radius: 8px; cursor: pointer;">Arrange Team B</button>
+      </div>
+
+      <!-- Original start match button (kept) -->
+      <button id="startBtn" style="background: linear-gradient(to right, #52b788, #95d5b2); color: #081c15; width: 90%; padding: 13px; margin-top: 12px; border: none; border-radius: 12px; font-weight: bold; cursor: pointer;">Proceed to Toss</button>
+    </div>
+
+    <!-- ADDED: Toss screen with coin flip animation -->
+    <div id="tossScreen" style="display: none;">
+      <div id="logo">
+        <img src="Corescore cricket scoring logo (1).png" alt="CoreScore Logo" class="logo">
+      </div>
+      <h2 style="color: #7dffb3; margin-bottom: 20px;">Coin Toss</h2>
+      <p id="tossTeam" style="color: #d8ffe8; margin-bottom: 20px; font-size: 18px;">Heads or Tails?</p>
+      
+      <!-- ADDED: Coin animation -->
+      <div id="coinFlip" style="width: 120px; height: 120px; margin: 20px auto; perspective: 1000px;">
+        <div id="coin" style="width: 100%; height: 100%; background: linear-gradient(135deg, #52b788, #95d5b2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; font-weight: bold; color: #081c15; box-shadow: 0 0 20px rgba(125, 255, 179, 0.4);">H</div>
+      </div>
+      
+      <!-- ADDED: Coin flip buttons -->
+      <div style="display: flex; gap: 8px; justify-content: center; margin-top: 20px;">
+        <button id="headsBtn" style="flex: 1; padding: 12px; background: linear-gradient(to right, #168aad, #34a0a4); color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 16px;">Heads</button>
+        <button id="tailsBtn" style="flex: 1; padding: 12px; background: linear-gradient(to right, #168aad, #34a0a4); color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 16px;">Tails</button>
+      </div>
+      
+      <!-- ADDED: Toss decision (after flip) -->
+      <div id="tossDecision" style="margin-top: 20px; text-align: center; display: none;">
+        <p id="tossResult" style="color: #7dffb3; font-size: 18px; font-weight: bold; margin-bottom: 12px;"></p>
+        <p id="tossWinnerChoice" style="color: #d8ffe8; margin-bottom: 12px; font-size: 16px;"></p>
+        <div style="display: flex; gap: 8px; justify-content: center;">
+          <button id="batBtn" style="flex: 1; padding: 10px; background: linear-gradient(to right, #52b788, #95d5b2); color: #081c15; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Bat</button>
+          <button id="bowlBtn" style="flex: 1; padding: 10px; background: linear-gradient(to right, #52b788, #95d5b2); color: #081c15; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Bowl</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ADDED: Winner announcement screen (before match result) -->
+    <div id="winnerAnnouncement" style="display: none;">
+      <div id="logo">
+        <img src="Corescore cricket scoring logo (1).png" alt="CoreScore Logo" class="logo">
+      </div>
+      <h2 id="announcementWinner" style="color: #7dffb3; font-size: 32px; margin: 40px 0; text-shadow: 0 0 20px rgba(125, 255, 179, 0.5);">TEAM WINS!</h2>
+      <p id="announcementMargin" style="color: #d8ffe8; font-size: 18px; margin: 20px 0;"></p>
+      <button id="viewSummaryBtn" style="background: linear-gradient(to right, #52b788, #95d5b2); color: #081c15; width: 90%; padding: 13px; margin-top: 20px; border: none; border-radius: 12px; font-weight: bold; cursor: pointer; font-size: 16px;">View Summary</button>
+      <button id="announcementNewMatch" style="background: linear-gradient(to right, #1b4332, #2d6a4f); color: white; width: 90%; padding: 12px; margin-top: 12px; border: none; border-radius: 12px; font-weight: bold; cursor: pointer; font-size: 15px;">Start New Match</button>
     </div>
 
     <!-- match section to display ongoing/current match details and controls. -->
@@ -45,8 +107,19 @@
 
       <!-- div to show the current batsmen and bowler stats. -->
       <div class="players">
+        <!-- ADDED: Show current batsmen names and stats -->
+        <!-- Start of modified players display -->
         <p id="p1"></p>
         <p id="p2"></p>
+        <!-- ADDED: Last Over tracking -->
+        <h4 style="margin-top: 12px; color: #7dffb3;">Last Over</h4>
+        <p id="lastOver" style="color: #d8ffe8; font-size: 14px;">-</p>
+        <!-- End of modified players display -->
+      </div>
+      <!-- ADDED: Bowler selector so bowling stats can be tracked -->
+      <div style="margin:8px 0;">
+        <label for="bowlerSelect">Bowler:</label>
+        <select id="bowlerSelect"><option value="">Select bowler</option></select>
       </div>
 
       <!-- run and wicket buttons -->
@@ -74,9 +147,8 @@
         <button id="nextInningsBtn">Next Innings</button>
       </div>
 
-      <!-- shows the over tracking after each ball. -->
-      <h4>Last Over</h4>
-      <p id="lastOver">-</p>
+      <!-- ADDED: Reorder batting button -->
+      <button id="reorderBtn" style="width: 90%; padding: 10px; margin-top: 10px; background: linear-gradient(to right, #1b4332, #2d6a4f); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">Reorder Batting</button>
     </div>
 
     <!-- result and reset section, appears after match ends. -->
@@ -88,6 +160,23 @@
       <h2 id="winner"></h2>
       <button id="resetBtn">New Match</button>
     </div>
+
+    <!-- ADDED: Match Result Modal (overlay) -->
+    <!-- Start of added result modal -->
+    <div id="resultModal" class="modal" style="display:none;">
+      <div class="modal-content">
+        <h2 id="modalWinner">Winner</h2>
+        <p id="modalMargin"></p>
+        <pre id="modalFinalScore"></pre>
+        <div id="modalSummary"></div>
+        <div class="modal-actions">
+          <button id="modalNewMatch">Start New Match</button>
+          <button id="modalClose">Close</button>
+          <button id="modalDownload">Download Summary</button>
+        </div>
+      </div>
+    </div>
+    <!-- End of added result modal -->
 
   </div>
 
